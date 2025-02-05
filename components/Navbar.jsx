@@ -2,32 +2,32 @@
 
 /**
  * Create the navbar with dynamic links.
- * @param {NavLink[]} links - Links to add to Navbar
+ * @param {NavLink[]} links -  (TODO) Links to add to Navbar
  * @param {boolean} useDefault - Whether to include default links
  */
 export default function Navbar(links = [], useDefault = true) {
   const navLinks = [];
+  /** @type {NavLink[]} defaultLinks */
+  const defaultLinks = [
+    {
+      label: "Home",
+      url: "/",
+    },
+    {
+      label: "Dataset A",
+      url: "/datasetA",
+    },
+  ];
   if (useDefault) {
-    navLinks.push(
-      ...[
-        {
-          label: "Home",
-          url: "/",
-        },
-        {
-          label: "Dataset A",
-          url: "/datasetA",
-        },
-      ],
-    );
+    navLinks.push(...defaultLinks);
   }
 
-  if (links) {
-    navLinks.push(...links);
-  }
+  /* if (links) {
+    navLinks.push(links);
+  } */
 
   return (
-    <nav className="flex flex-row w-full">
+    <nav className="flex flex-row w-full justify-center items-center p-5">
       <ul>
         <li>
           {navLinks.map((link) => (
